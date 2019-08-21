@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: abhi-nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: abhi-nginx
+  template:
+    metadata:
+      labels:
+        app: abhi-nginx
+    spec:
+      containers:
+      - name: abhi-nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+        - containerPort: 443
